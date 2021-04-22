@@ -1,7 +1,8 @@
 #include <pthread.h>
 #include <stdio.h> // For printf.
 
-
+// We need to have a mutex to make sure
+// 	values are not overwritten.
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER; // Mutex variable for accessing balance.
 int balance = 1000;
 
