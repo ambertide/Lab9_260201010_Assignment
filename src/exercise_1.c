@@ -21,6 +21,7 @@ void *deposit_money(void *balance_ptr) {
 void *withdraw_money(void *balance_ptr) {
 	int *balance = (int*) balance_ptr;
 	for (int i = 0; i < 200; i++) {
+		while (*balance <= 5); // Withdrawing in this stage will cause this to go negative.
 		pthread_mutex_lock(&mutex);
 		*balance -= 5;
 		pthread_mutex_unlock(&mutex);
